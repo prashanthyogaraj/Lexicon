@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Metrics Collection</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/static/div.css">
+<link rel="stylesheet" href="/static/logo.css">
+<style>
+    #release_tab {
+        position: auto;
+        margin-top: 20px;
+        border: 1px groove;
+        border-color: black;
+    }
+    #myForm{
+
+
+    }
+    body {
+        background-color: #74AFAD;
+        rgb(66, 72, 244);
+    }
+    .btn-custom,#btncustom{
+        color: white;
+        background: #444;
+        margin-top: 100px;
+        margin-left: 15px;
+        height: 100px;
+        width: 100px;
+        border: none;
+        border-radius: 50%;
+    }
+    .sel-custom,#date_field,#date1_field{
+        margin-top: 100px;
+        height: 40px;
+        width: 150px;
+        border: none;
+
+    }
+    .testbed {
+        background-color: white;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    .page-heading {
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        margin-left: 110px;
+        margin-top: -39px;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    header {
+        overflow: hidden;
+        height: 70px;
+        font-size :auto;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+    .heading {
+         color : white;
+         margin-left: 110px;
+         margin-top: 29px;
+    }
+    .tab {
+        table-layout: fixed;
+        width: 250px;
+        margin-top: 100px;
+    }
+      #maindiv{
+        position: fixed;
+        margin-top: 73px;
+        /*margin-left: 180px;*/
+        font-size: 12px;
+        font-weight: 200;
+        /*width: 1340px;*/
+        width : 100%;
+        min-height: 750px;
+        border-radius: 1%;
+        background-color: #eeeeee;
+        /*overflow-y:auto; */
+
+    }
+    .tab1 {
+        background: #005381;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        white-space: nowrap;
+    }
+    .tab_fiIp {
+        width: 100px;
+    }
+    .tab_fw {
+        width: 150px;
+    }
+    .tab_bios {
+        width: 200px;
+    }
+    .tab_link {
+        overflow: hidden;
+    }
+    .tab_header {
+        color: white;
+        font-weight: lighter;
+        text-align: left;
+        width: 200px;
+    }
+    tbody{
+        border: none;
+        border-radius: 50px;
+    }
+    th {
+        border-radius: 10px;
+        text-align: left;
+    }
+    .save {
+        float: right;
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: -65px;
+        margin-right: 35px;
+        cursor: pointer;
+    }
+    .save:hover {
+        background-color: steelblue;
+    }
+    #caldiv{
+        /*min-height : 1000px; */
+        margin-left : 50px;
+        margin-top : 50px;
+    }
+    .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.my_dropdown,.my_dropdown1{
+    height : 35px;
+    width : 420px;
+    background : #f2f2f2;
+
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+#mySidenav.clicked{
+    /*width : 0px; */
+    display : none;
+}
+#Export{
+    margin-left:90px;
+    border : 0.5px Groove;
+    height : 30px;
+    text-align : center;
+    background : #cccccc;
+    transition: all 1.5s;
+    width : 140px;
+
+}
+
+</style>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+
+     document.getElementById("mySidenav").style.width = "0";
+
+}
+function exp(){
+
+   document.getElementById("export_form").submit();
+}
+
+
+
+ $('#mySidenav').on('click', function() {
+     alert('hello');
+    $(this).toggleClass('clicked');
+});
+</script>
+<body>
+<form id ="export_form" method="post" action="/Activity/export_users_xls/">{% csrf_token %}
+<header>
+
+<div id = "header" >
+    <p class = "heading">LEXICON</p>
+    <p class="page-heading">TEAM METRICS</p>
+    <div class="view">
+        <div class="plane main">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        </div>
+    </div>
+    <button type="submit" class="save" onclick="submit()">SAVE</button>
+</div>
+</header>
+
+<div id ="maindiv">
+    <div id="mySidenav" class="sidenav">
+      <a href="" class="closebtn">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Chart</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <span style="position:absolute;font-size:30px;cursor:pointer;margin-left:10px;" onclick="openNav()">&#9776; open</span>
+    <div id = "caldiv">
+    <label style="margin-left:90px;">Start Date</label>
+    <label style="margin-left:155px;"> End Date</label><br>
+    <input style="width:200px; height:30px;margin-left:90px;border:2px Groove;background : #f2f2f2;" type="date" value="2009-01-01" name="fromDate">
+    <input style ="width:200px; height:30px;margin-left:10px;border:2px Groove;background : #f2f2f2;" type="date"value="2010-12-01" name="toDate"><br><br>
+    <label style="margin-left:90px">Team</label><br>
+    <select class = "my_dropdown" name="team_filter"  id = "dropdown1" style= "border:2px Groove; margin-left:90px;">
+	<option>Team</option>
+	<option>Rack OS Compat standalone</option>
+	<option>Rack OS Compat UCSM</option>
+	<option>Blade Rack OS Compat</option></select><br><br>
+    <label style="margin-left:90px">Release</label><br>
+    <select class = "my_dropdown" name="release_filter"  id = "dropdown2" style= "border:2px Groove; margin-left:90px;">
+	<option>Release</option>
+	<option>GP</option>
+	<option>GPMR1</option>
+	<option>FPMR2</option></select>
+        <br><br>
+    <label style="margin-left:90px">Engineer</label><br>
+    <select class = "my_dropdown" name ="engineer_filter"  id = "dropdown3" style= "border:2px Groove; margin-left:90px;">
+    <option>Engineer</option>
+    {%for user in users_all%}
+	<option>{{user }}</option>
+     {%endfor%}
+	</select><br><br>
+    <label style="margin-left:90px">Server</label><br>
+    <select class = "my_dropdown1" name ="server_filter"  id = "dropdown4" style= "border:2px Groove; margin-left:90px;">
+	<option>Server</option>
+	<option>C460-M4</option>
+	<option>C24-M3</option>
+	<option>C22-M3</option><option>C220-M3</option><option>C240-M3</option><option>C220-M4</option><option>C240-M4</option>
+    <option>C3X60-M3</option><option>C3X60-M4</option><option>C480-M5</option><option>C240-M5</option><option>C220-M5</option></select>
+        <br><br>
+    <label style="margin-left:90px">Adapter</label><br>
+    <select class = "my_dropdown" name ="adapter_filter"  id = "dropdown5" style= "border:2px Groove; margin-left:90px;">
+    {% for adap in adapter_names %}
+	<option>{{ adap }}</option>
+     {% endfor %}
+    </select><br><br>
+    <label style="margin-left:90px">OS</label><br>
+    <select class = "my_dropdown" name ="os_filter"  id = "dropdown6" style= "border:2px Groove; margin-left:90px;">
+	{%for os in osnames%}
+        <option>{{ os }}</option>
+	{%endfor%}
+    </select><br><br>
+    <input type="button" id="Export" value = "Export" onclick="exp()">
+
+</div>
+</div>
+</form>
+</body>
+</html>

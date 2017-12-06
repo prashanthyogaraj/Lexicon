@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PREVIEW</title>
+</head>
+<link rel="stylesheet" href="/static/div.css">
+<link rel="stylesheet" href="/static/logo.css">
+<style>
+    table {
+        margin-left: 600px;
+        margin-right: auto;
+    }
+    body {
+        background-color: #74AFAD;
+        rgb(66, 72, 244);
+    }
+    .testbed {
+        background-color: white;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    .page-heading {
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        margin-left: 110px;
+        margin-top: -39px;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    header {
+        overflow: hidden;
+        height: 70px;
+        font-size :auto;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+    .heading {
+         color : white;
+         margin-left: 110px;
+         margin-top: 29px;
+    }
+    .tab {
+        <!--border-collapse: collapse;-->
+        <!--border: 1px solid white;-->
+        table-layout: fixed;
+        width: 250px;
+        margin-top: 100px;
+    }
+    .tab1 {
+        background: #005381;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        white-space: nowrap;
+    }
+    .tab_fiIp {
+        width: 100px;
+    }
+    .tab_fw {
+        width: 150px;
+    }
+    .tab_bios {
+        width: 200px;
+    }
+    .tab_link {
+        overflow: hidden;
+    }
+    .tab_header {
+        color: white;
+        font-weight: lighter;
+        text-align: left;
+        width: 200px;
+    }
+    tbody{
+        border: none;
+        border-radius: 50px;
+    }
+    th {
+        border-radius: 10px;
+        text-align: left;
+    }
+    .save {
+        float: right;
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: -65px;
+        margin-right: 35px;
+        cursor: pointer;
+    }
+    .save:hover {
+        background-color: steelblue;
+    }
+    .textbox{
+        border: 0px solid #74AFAD;
+        width: 100%;
+        height: 40px;
+        background: #74AFAD;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .logs {
+        border: none;
+        background: #74AFAD;
+        text-align: center;
+    }
+    .textbox_header {
+        background: white;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+    tab_header:hover {
+        background: #444;
+        border: 2px solid #444;
+    }
+</style>
+<script>
+    function submit()
+    {
+        document.getElementById("myForm").submit();
+    }
+</script>
+<body>
+
+<header>
+<div id = "header" >
+    <p class = "heading">LEXICON</p>
+    <p class="page-heading">Please review before submitting</p>
+    <div class="view">
+        <div class="plane main">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        </div>
+    </div>
+    <button type="submit" class="save" onclick="submit()">SAVE</button>
+</div>
+</header>
+    <form id="myForm" method="POST" action="/Activity/execution/">{% csrf_token %}
+        {% if input_activity_data %}
+            {% for team, entries in input_activity_data.items %}
+                <table class="tab pure-table-bordered tab_header" contenteditable="true">
+                    <tr class="testbed" contenteditable="false">
+                        <th colspan="2">
+                            <input type="text" name="setup" class="textbox_header" value="{{ entries.testbed }}" readonly>
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">OS</th>
+                        <th class="tab1">
+                            <input type="text" name="os" value="{{ entries.os_type }}" class="textbox">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">OS Boot Method</th>
+                        <th class="tab1">
+                            <input type="text" name="os_bootm" class="textbox" value="{{ entries.os_bmode }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">OS Boot Type</th>
+                        <th class="tab1">
+                            <input type="text" name="os_bootty" class="textbox" value="{{ entries.bootType }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Configuration</th>
+                        <th class="tab1">
+                            <input type="text" name="config" class="textbox" value="{{ entries.adapters }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">PXE Adapter</th>
+                        <th class="tab1">
+                            <input type="text" name="pxe_adap" class="textbox" value="{{ entries.pxe_adapter }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header" contenteditable="false">
+                        <th class="tab1">CDETS ID</th>
+                        <th class="tab1">
+                            {% if entries.cdetsID != None or entries.cdetsID != NA or entries.cdetsID != na or entries.cdetsID != Na%}
+                            <a href="https://cdetsng.cisco.com/webui/#view={{ entries.cdetsID }}" name="cdets" class="textbox">{{ entries.cdetsID }}</a>
+                            <input type="text" class="textbox" name="cdets" value="{{ entries.cdetsID }}" hidden>
+                        </th>
+                            {% else %}
+                            <th class="tab_link">
+                                <input type="text" class="textbox" value="{{ entries.cdetsID }}" name="cdets"></th>
+                            {% endif %}
+                    </tr>
+                    <tr class="tab_header" contenteditable="false">
+                        <th class="tab1">Automation Link</th>
+                        {% if entries.logs != None or entries.logs != NA or entries.logs != na or entries.logs != Na%}
+                        <th class="tab1"><a href="{{ entries.logs }}" name="automation_logs">{{ entries.logs }}</a>
+                            <input type="text" name="automation_logs" value="{{ entries.logs }}" class="textbox" hidden>
+                        </th>
+                        {% else %}
+                        <th class="tab1">
+                            <input type="text" class="textbox" value="{{ entries.logs }}" name="automation_logs"></th>
+                        {% endif %}
+
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Driver Version</th>
+                        <th class="tab1">
+                            <input type="text" name="driver_ver" class="textbox" value="{{ entries.driver_version }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Automation Usage</th>
+                        <th class="tab1">
+                            <input type="text" name="auto_usage" class="textbox" value="{{ entries.automationused }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Result</th>
+                        <th class="tab1">
+                            <input type="text" name="result" class="textbox" value="{{ entries.res }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Remarks</th>
+                        <th class="tab1">
+                            <input type="text" name="comments" class="textbox" value="{{ entries.comments }}">
+                        </th>
+                    </tr>
+                    <tr class="tab_header">
+                        <th class="tab1" contenteditable="false">Effort Spent</th>
+                        <th class="tab1">
+                            <input type="text" name="effort" class="textbox" value="{{ entries.effort }}">
+                        </th>
+                    </tr>
+                </table>
+            {% endfor %}
+        {% endif %}
+    </form>
+</body>
+</html>

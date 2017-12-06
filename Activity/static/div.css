@@ -1,0 +1,331 @@
+fitab{
+    margin-bottom: 100px;
+}
+#latinp,#Adapter,#ucsmadap,#driver,#driver1,#ucsslot,#ucsfw,#slot,#Firmware,#boot,#ucsboot,#BootCode,#ucsboot,#cimc_standalone,#cimcpass,#effort_testbed_standalone,#Fi_FW,#server_num,#ucsm_effort,#ucsm_cimc,#ucsm_bios,#cimcbios_standalone,#Fi_ip,#driverversion,#linklog,#comment,#Effort_Spent,#cdetlink{
+    height: 40px;
+    width: 180px;
+    /*border-radius: 5px 5px 5px 5px;*/
+    background: #eee;
+    border :1px groove;
+
+}
+#latinp1,#pxe_adapter{
+      height: 40px;
+    width: 180px;
+    /*border-radius: 5px 5px 5px 5px;*/
+    background: #eee;
+    border :1px groove;
+
+}
+#stand_button{
+    /*margin-left:200px; */
+    margin-left:905px;
+    padding-left : 35px;
+    padding-right : 35px;
+    margin-top: -90px;
+    position :absolute;
+
+}
+.actlabel{
+    border: none;
+    background-color:#eeeeee;
+    outline :none;
+}
+.standalone{
+
+    width :100%;
+}
+.troubleshootclass{
+    width: 400px;;
+     height: 120px;
+     border :none;
+     margin-top:10px;
+
+}
+#textareaid{
+    margin-top :5px;
+    margin-left :5px;
+    background : #B0D2D7;
+    width : 380px;
+    height : 100px;
+
+}
+.testbedclass{
+    width: 900px;;
+     height: 90px;
+     border :groove;
+     margin-top:10px;
+}
+.Ucsmtestbedclass{
+    width :900px;
+     height: 90px;
+     margin-top:10px;
+     margin-left :-5px;
+     border :groove;
+}
+#sel{
+
+    background :none;
+
+
+}
+#FW,#Standalone_modal,#ucs{
+    padding-top :10px;
+}
+#selid{
+
+    /*margin-right: 100px;*/
+
+}
+
+/*css for current div */
+#firstinp1,#ucsm_adapter,#adapter_standalone,#load_cimc,#enter_cimc,#load_ucsm,#enter_ucsm{
+
+
+         align-items: flex-start;
+        background: #eee;
+        border: 1px solid #BEBEBE;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-left :5px;
+        font-size: 14px;
+		width : 98%;
+        height: 40px;
+        cursor: pointer;
+
+
+}
+body{
+    background: #00699C;
+}
+/*textarea{
+    background: #99B5BA;
+    border :1px solid #BEBEBE;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+} */
+#fitab,th{
+    margin-top: 10px ;
+    border-top-style: none;
+    border-bottom-style: none;
+}
+#firstinp,#cimc_ip_standalone,#Cimc_Password,#Testbedeffort,#server_standalone,#cimcbios_standalone_id,#adapter_standalone_id,#loadcimcdetail,#loaducsm,#enterucsm,#ucsmtestbedeffort,#entercimcdetail,#FW_upgradeprocess_id,#drivversion,#pxeadap,#comments,#Efforts,#cdets{
+
+    border-color: #00699C;
+    padding-left: 5px;
+
+}
+#firstinp_ucsm,#Fi_Firmware,#server_ucsm,#server_num_ucsm,#cimc_version,#bios_version,#adapter,#discovery_method,#Fi_ip_ucsm{
+    padding-top :10px;
+    padding-left :5px;
+
+}
+/*textarea:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}*/
+
+    td{
+
+        width: 160px;
+    }
+
+#fidetailsel,#ucsm_servername,#Discovery_method,#ucsm_server,#server_standalone,#FW_upgrade_process,#osname,#osbootmethod,#serverboottype,#automation_select,#result{
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-bottom: 6px;
+    width: 180px;
+    height: 40px;
+}
+
+#sample,#standalone_div_id{
+  position: relative;
+  width: 1080px;
+  height: 130%;
+  margin-top: 30px;
+  margin-left: 3px;
+  border :groove;
+}
+.ucsmdiv{
+     width: 99.7%;
+     height: 90%;
+     margin-top: 30px;
+    margin-left: 3px;
+    border :groove;
+}
+select{
+    background: #eee;
+    border-style: 3px groove #eee;
+    height: 100%;
+    width: 180px;
+    /*border-radius: 5px 5px 5px 5px;*/
+}
+select:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+#latinp:hover,#driverversion:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+#latinp1:hover,#pxe_adapter:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+
+}
+#firstinp1:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+#text{
+
+width:59px;
+height: 18px;
+
+}
+textarea{
+
+	overflow:hidden;
+
+}
+#text1{
+
+width:59px;
+height: 18px;
+
+}
+  #dropdownid{
+        margin: 200px 1px;
+        margin-left: 2px;
+        padding-top: 5px;
+        padding-left: 5px;
+  }
+
+  h1{
+      display: block;
+      text-align: center;
+
+  }
+  #release{
+
+      padding-top: 10px;
+      padding-left: 5px;
+
+  }
+
+  .button{
+        background-color: #00699C;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        float :right;
+        font-size: 14px;
+        margin: 20px 1px;
+        cursor: pointer;
+        border-radius: 5px 5px 5px 5px;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+  }
+.button:hover{
+    background: #99B5BA;
+    border: none;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2), 0 6px 15px 0 rgba(0,0,0,0.2);
+
+
+}
+.modal-header,.ucsm_modal-header{
+    text-align: center;
+    height: 50px;
+    padding: 1px 5px;
+  /*  background-color: #00699c; */
+      background-color: #333;
+    color: white;
+}
+
+.modal-body,.ucsm-modal-body {
+    padding: 200px 160px;
+    position  : relative;
+  /* margin-top : 100px; */
+
+}
+
+.modal-content,.ucsm_modal-content{
+    /*position: absolute;*/
+    background-color: #fefefe
+    margin: auto;
+    /*padding: 0; */
+    margin-top : 180px;
+	 margin-left : 70px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+
+      -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+ .modal,.ucsm-modal {
+    display: none; /* Hidden by default */
+     position: fixed; /*Stay in place */
+         z-index: 1; /* Sit on top */
+  /*      margin-top : 80px;
+ /*    margin-right :150px;
+  /*   margin-left :150px;
+ /*    padding-top: 100px; /* Location of the box */
+     padding-left : 100px;
+    left: 0;
+    top: 0;
+    width: 1800px; /* Full width */
+    height: 800px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+.save{
+        align-items: flex-start;
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        float :right;
+        font-size: 14px;
+
+        cursor: pointer;
+}
+.save:hover{
+
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+}
+/* Modal Content */
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+.del {
+    margin-left : 10px;
+    font-size: 28px;
+    font-weight: bold;
+
+}
+
+.del:hover,
+.del:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+} 
+

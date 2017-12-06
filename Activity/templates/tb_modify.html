@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MODIFY TESTBED</title>
+</head>
+<link rel="stylesheet" href="/static/div.css">
+<link rel="stylesheet" href="/static/logo.css">
+<script>
+    function go()
+    {
+       document.getElementById("myForm").submit();
+    }
+</script>
+<style>
+    table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        background-color: #74AFAD;
+        rgb(66, 72, 244);
+    }
+    .testbed {
+        background-color: white;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    .page-heading {
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        margin-left: 110px;
+        margin-top: -39px;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    header {
+        overflow: hidden;
+        height: 70px;
+        font-size :auto;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+    .heading {
+         color : white;
+         margin-left: 110px;
+         margin-top: 29px;
+    }
+    .tab {
+        border-collapse: collapse;
+        border: 1px solid white;
+        table-layout: fixed;
+        width: 250px;
+        margin-top: 100px;
+    }
+    .tab1 {
+        width: 80px;
+    }
+    .tab_fiIp {
+        width: 100px;
+    }
+    .tab_fw {
+        width: 150px;
+    }
+    .tab_bios {
+        width: 200px;
+    }
+    .tab_link {
+        overflow: hidden;
+    }
+    .tab_header {
+        background: #6599ff;
+        color: black;
+        font-weight: lighter;
+        text-align: left;
+        box-shadow: inset 0px 1px 2px #568ebd;
+    }
+    tr {
+        border-bottom: 3px solid white;
+    }
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:hover {
+        background-color: white;
+    }
+    .save {
+        float: right;
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: -65px;
+        margin-right: 35px;
+        cursor: pointer;
+    }
+    .save:hover {
+        background-color: steelblue;
+    }
+</style>
+<body>
+
+<header>
+<div id = "header" >
+    <p class = "heading">LEXICON</p>
+    <p class="page-heading">Select the Testbed's to be deleted</p>
+    <div class="view">
+        <div class="plane main">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        </div>
+    </div>
+    <button type="submit" class="save" onclick="go()">DELETE</button>
+</div>
+</header>
+
+<form id="myForm" method="POST" action="/Activity/delete/"> {% csrf_token %}
+    <table class="tab pure-table-bordered tab_header" contenteditable="true">
+        {% for entries in standalone_testbed %}
+            <tr class="testbed" contenteditable="false">
+                <th colspan="2">
+                    <input type="checkbox" class="del" name="checks" value="{{ entries.cimc_ip }}">{{ entries.cimc_ip }}</th>
+            </tr>
+        {% endfor %}
+        {% for entries in ucsm_testbed %}
+            <tr class="testbed" contenteditable="false">
+                <th colspan="2">
+                    <input type="checkbox" class="del" name="checks" value="{{ entries.fi_ip }}_{{ entries.server_type }}">{{ entries.fi_ip }}_{{ entries.server_type }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>

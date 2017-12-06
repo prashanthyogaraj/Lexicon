@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ENTER ACTIVITY PAGE</title>
+</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/div.css">
+    <link rel="stylesheet" href="/static/logo.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/functions.js" type="text/javascript"></script>
+<style>
+
+
+    body{
+        background-color: #74AFAD;
+        rgb(66, 72, 244);
+        overflow: hidden;
+    }
+
+    html,body { position: inherit;min-height: 10%; margin: 0px; padding: 0px; }
+
+    header{
+        height: 70px;
+        font-size :auto;
+        background-color: transparent;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+
+    #logout{
+         color : white;
+         text-decoration: none;
+
+    }
+
+    #user{
+         color : white;
+         text-decoration: none;
+
+    }
+    .team{
+        margin-top: 20px;
+        float :right;
+        padding-right: 20px;
+        padding-left: 20px;
+        display: inline-block;
+    }
+
+    .team1 {
+        float :right;
+        margin-top: 12px;
+        color :white;
+        border :none;
+        outline :none;
+        background-color :#333;
+        margin-right :15px;
+        font-size: 18px;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    .checksubmit{
+        position : relative;
+        <!--margin-top: 10px;-->
+        margin-bottom : 200px;
+        <!--float :right;-->
+        margin-right :10px;
+        width :100px;
+        height :30px;
+        text-align :center;
+       /* display: inline-block; */
+    }
+    #sub{
+        padding-left :20px;
+        padding-right :20px;
+        margin-left : 15px;
+        align-items: flex-start;
+        background: transparent;
+        border: 1px solid #BEBEBE;
+        text-align: center;
+        cursor: pointer;
+        border-style: groove;
+        width: 180px;
+        height: 30px;
+       font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Arial, Helvetica;
+    }
+    #teamsel{
+        border: 1px solid;
+        height :30px;
+        margin-right :20px;
+        margin-top :20px;
+        background-color: #eee;
+         color: black;
+    }
+    .heading{
+         color : white;
+         margin-top :12px;
+         margin-left :90px;
+         font-size: 40px;
+         font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    #maindiv{
+        position: relative;
+        margin-top: 100px;
+        margin-left: 180px;
+        font-size: 12px;
+        font-weight: 200;
+        width: 1340px;
+        height: 690px;
+        border-radius: 1%;
+        background-color: #eeeeee;
+        overflow-y:auto;
+
+    }
+    #subdiv{
+        min-height: 20px;
+        margin-bottom: 20px;
+        background-color: transparent;
+        position: fixed;
+        margin-left: 10px;
+        margin-bottom: 100px;
+        margin-top: 80px;
+        width:180px;
+        height: 360px;
+    }
+    .flu {
+        position: inherit;
+    }
+    #selactivity{
+        margin-left: 10px;
+        position: absolute;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    .task{
+        background-color: transparent;
+        width:180px;
+        text-align: center;
+         border:1px ridge;
+        border-right: groove;
+        border-bottom: groove;
+        /*border:1px groove;*/
+
+    }
+    .task:hover{
+
+        /*background-color: #00699c;*/
+        background-color: #4268f4;
+        color:white;
+
+    }
+   #a1:hover,#review_automation:hover,#unittest:hover,#scripting:hover,#auto_plan:hover,#fun_activity:hover,#team_interview:hover,#kt:hover,#techsession:hover,#other_learning:hover,#yorbit:hover,#certification:hover,#other_valueadd:hover,#patent:hover,#whitepaper:hover,#other_org:hover,#initiative:hover,#interview:hover,#other:hover,#hcl_review:hover,#hclpreparation:hover,#testmetrics:hover,#statusupdate:hover,#defect:hover,#troubleshoot:hover,#execution:hover,#FW_review:hover,#prd_review:hover,#basesheet:hover,#Product:hover,#vds_review:hover,#create_plan:hover,#review:hover,#modify_testcase:hover,#testbedid:hover{
+        background-color:#4268f4;
+       color: white;
+   }
+   .testbedsetup {
+        border: none;
+        margin-left: 7px;
+   }
+    .dropdown-menu{
+        margin-left: 172px;
+        margin-top: -315px;
+    }
+    #submit{
+          background-color :#eee;
+          border : 1px groove;
+          <!--margin-top :100px;-->
+
+          color :black;
+
+          padding-top :8px;
+          margin-left :15px;
+          padding-left :10px;
+          padding-right : 10px;
+          <!--margin-right:24px;-->
+
+    }
+    #submit:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+
+    }
+ <!--.modal,.ucsm-modal {-->
+    <!--display: none; /* Hidden by default */-->
+    <!--position: fixed; /* Stay in place */-->
+    <!--z-index: 1; /* Sit on top */-->
+    <!--padding-top: 100px; /* Location of the box */-->
+    <!--left: 0;-->
+    <!--top: 0;-->
+    <!--width: 100%; /* Full width */-->
+    <!--height: 100%; /* Full height */-->
+    <!--overflow: auto; /* Enable scroll if needed */-->
+    <!--background-color: rgb(0,0,0); /* Fallback color */-->
+    <!--background-color: rgba(0,0,0,0.4); /* Black w/ opacity */-->
+<!--}-->
+<!--#save,#save_ucsm{-->
+        <!--align-items: flex-start;-->
+        <!--background-color: #4CAF50;-->
+        <!--border: none;-->
+        <!--color: white;-->
+        <!--padding: 15px 32px;-->
+        <!--text-align: center;-->
+        <!--text-decoration: none;-->
+        <!--display: inline-block;-->
+        <!--float :right;-->
+        <!--font-size: 14px;-->
+        <!--cursor: pointer;-->
+        <!--background-color: #4CAF50;-->
+<!--}-->
+<!--#save:hover,#save_ucsm:hover{-->
+
+     <!--box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);-->
+<!--}-->
+<!--/* Modal Content */-->
+<!--.modal-content,.ucsm_modal-content{-->
+    <!--position: relative;-->
+    <!--background-color: #fefefe;-->
+    <!--margin: auto;-->
+    <!--padding: 0;-->
+    <!--border: 1px solid #888;-->
+    <!--width: 80%;-->
+    <!--box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);-->
+    <!-- -webkit-animation-name: animatetop;-->
+
+    <!-- -webkit-animation-duration: 0.4s;-->
+    <!--animation-name: animatetop;-->
+    <!--animation-duration: 0.4s-->
+<!--}-->
+
+<!--/* Add Animation */-->
+<!--@-webkit-keyframes animatetop {-->
+    <!--from {top:-300px; opacity:0}-->
+    <!--to {top:0; opacity:1}-->
+<!--}-->
+
+<!--@keyframes animatetop {-->
+    <!--from {top:-300px; opacity:0}-->
+    <!--to {top:0; opacity:1}-->
+<!--}-->
+
+<!--/* The Close Button */-->
+<!--.close {-->
+    <!--color: white;-->
+    <!--float: right;-->
+    <!--font-size: 28px;-->
+    <!--font-weight: bold;-->
+
+<!--}-->
+
+<!--.close:hover,-->
+<!--.close:focus {-->
+    <!--color: #000;-->
+    <!--text-decoration: none;-->
+    <!--cursor: pointer;-->
+<!--}-->
+
+<!--.modal-header,.ucsm_modal-header{-->
+    <!--text-align: center;-->
+    <!--height: 50px;-->
+    <!--padding: 1px 5px;-->
+    <!--background-color: #00699c;-->
+    <!--color: white;-->
+<!--}-->
+
+<!--.modal-body,.ucsm-modal-body {padding: 200px 160px;}-->
+
+#execsel{
+    <!--margin-left:200px;-->
+    margin-bottom :20px;
+    background: transparent;
+    border-style: groove;
+    width: 180px;
+    height: 30px;
+    <!--border-radius: 5px 5px 5px 5px;-->
+    font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Arial, Helvetica;
+
+
+}
+#testselect{
+    margin-bottom :20px;
+    background: transparent;
+    border-style: groove;
+    width: 180px;
+    height: 30px;
+    <!--border-radius: 5px 5px 5px 5px;-->
+    font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Arial, Helvetica;
+}
+#testselect_troubleshoot{
+    margin-bottom :20px;
+    background: #eee;
+    border-style: groove;
+    width: 180px;
+    height: 30px;
+    <!--border-radius: 5px 5px 5px 5px;-->
+    font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Arial, Helvetica;
+
+
+}
+#testbed{
+     margin-bottom :20px;
+    background: #eee;
+    border-style: groove;
+    width: 180px;
+    height: 30px;
+    font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Arial, Helvetica;
+
+
+}
+
+#execseldiv{
+    display :none;
+    position:absolute;
+    background: none;
+    width :500px;
+    min-height :10%;
+    margin-left :200px;
+     margin-top :105px;
+}
+#testedselect{
+    display :none;
+      position:absolute;
+
+    <!--background: #333;-->
+    width :500px;
+    height :100px;
+    margin-left :400px;
+     margin-top :105px;
+
+
+}
+#testedselect_troubleshoot,#FW_rev{
+       display :none;
+      position:absolute;
+    width :500px;
+    height :100px;
+    margin-left :200px;
+     margin-top :105px;
+
+}
+#testdbedsetup{
+    display :none;
+    position:absolute;
+    width :500px;
+    height :100px;
+    margin-left :200px;
+     margin-top :105px;
+
+}
+</style>
+<script>
+var arr_os = ['OS'];
+arr_os = {{ os_name|safe }};
+
+
+function adddriver(name){
+ //  alert("name is"+name);
+    var tmp_name = name;
+    var res = tmp_name.split(/\D/);
+	
+    var tb = document.getElementById('actlabel'+res[14]).value;
+    var insertion = 0;
+    var rel = document.getElementById('execsel').value;
+    var standalone_div  = document.getElementsByClassName("standalone"+res[14])[0];
+	var data1 = tb.split(/-/);
+		
+        {% for tbs in standalone_testbed %}
+           var data = "{{ tbs.cimc_ip }}";
+           var sp = "{{ tbs.adapter_name }}".split(",");
+		   var tg = "{{ tbs.target_type }}".split(",");
+           for (var i=0; i<sp.length; i++){
+               if (data1[0] == data) {
+				
+                    var row_inp = document.createElement("tr");
+                    var row_td = document.createElement("td");
+                    var inp = document.createElement("input");
+                    inp.id = "driver";
+					inp.name = "adapter"+res[14];
+                    inp.value = sp[i].replace('[u', '').replace('u', '').replace('&#39;', '').replace('&#39;', '').replace(']', '')+"_"+tg[i].replace('[u', '').replace('u', '').replace('&#39;', '').replace('&#39;', '').replace(']', '');
+                    inp.readOnly = true;
+                    inp.style.position = "relative";
+                    inp.style.marginBottom = "6px";
+                    inp.style.marginLeft = "5px";
+
+                    var row_td1= document.createElement("td");
+                    var inp1 = document.createElement("input");
+                    inp1.id = "driver1";
+					inp1.name = "driver"+res[14];
+                    inp1.placeholder = "Enter Driver Version";
+                    inp1.style.marginLeft = "5px";
+
+                    row_td.appendChild(inp);
+                    row_inp.appendChild(row_td);
+
+
+                    row_td1.appendChild(inp1);
+                    row_inp.appendChild(row_td1);
+
+                    standalone_div.appendChild(row_inp);
+
+               }
+           }
+
+        {% endfor %}
+		{% for tbs in ucsm_testbed %}
+           var data = "{{ tbs.fi_ip }}_server{{ tbs.server_number }}";
+           var sp = "{{ tbs.adapter_name }}".split(",");
+           for (var i=0; i<sp.length; i++){
+               if (data1[0] == data) {
+				
+                    var row_inp = document.createElement("tr");
+                    var row_td = document.createElement("td");
+                    var inp = document.createElement("input");
+                    inp.id = "driver";
+					inp.name = "adapter"+res[14];
+                    inp.value = sp[i];
+                    inp.readOnly = true;
+                    inp.style.position = "relative";
+                    inp.style.marginBottom = "6px";
+                    inp.style.marginLeft = "5px";
+
+                    var row_td1= document.createElement("td");
+                    var inp1 = document.createElement("input");
+                    inp1.id = "driver1";
+					inp1.name = "driver"+res[14];
+                    inp1.placeholder = "Enter Driver Version";
+                    inp1.style.marginLeft = "5px";
+
+                    row_td.appendChild(inp);
+                    row_inp.appendChild(row_td);
+
+
+                    row_td1.appendChild(inp1);
+                    row_inp.appendChild(row_td1);
+
+                    standalone_div.appendChild(row_inp);
+
+               }
+           }
+        {% endfor %}
+         document.getElementsByName("Driver_version"+res[14])[0].disabled = true;
+      //  document.getElementById("driverversion").
+}
+
+
+function addInp(){
+
+  var inp = document.getElementById("teamsel1").value;
+
+    if(inp == "Log out"){
+        window.location="/";
+    }
+    else if(inp == "Change Password"){
+        window.location = "/Activity/change_pswd/";
+    }
+    else if(inp == "History"){
+        window.location = "/Activity/history/";
+    }
+
+  }
+
+
+</script>
+    <body>
+
+        <!--<form id ="myForm1" action="/Activity/preview/" method="post"> {% csrf_token %}-->
+
+            <header>
+
+                <div id = "header" >
+                    <select class = "team1" id ="teamsel1" onchange="addInp()" name="engineer">
+                            {% for userdetails in user_existence %}
+                                <option>Hello {{ userdetails.nickname }}</option>
+                            {% endfor %}
+                                <option>History</option>
+                                <option>Change Password</option>
+                                <option>Log out</option>
+
+                    </select>
+
+                    <div class="view">
+                      <div class="plane main">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                    <h3 class = "heading">Lexicon</h3>
+                </div>
+            </header>
+
+            <div id ="maindiv">
+                <p id = "selactivity" style = "font-size:18pt; margin-top: 35px;">Select Your Activity</p>
+
+                <select class = "team" id ="teamsel">
+                    <option>Team</option>
+                    <option>Rack OS-Compat-Standalone</option>
+                    <option>Rack OS-Compat-UCSM</option>
+                    <option>Blade OS-Compat</option>
+                    <option>VIC Regression</option>
+                </select>
+                <!--<form id ="myForm1" action="/Activity/preview/" method="post"> {% csrf_token %}-->
+                    <!--<a href  class = "checksubmit" title = "Log Out" id ="submit" onclick="validate()" >SUBMIT</a>-->
+                <!--</form>-->
+
+                <div id ="subdiv" class="flu">
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Requirement Gathering
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" id="test_ul" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="FW_review" class="fwselect" onclick="ret_sel('fwselect'),fwreviewselect()">Firmware Review</a></li>
+                            <li><a href="#" id ="prd_review" class="prdselect" onclick="ret_sel('prdselect'),fwreviewselect()">PRD/PID Review</a></li>
+                            <li><a href="#" id ="vds_review" class="vdsselect" onclick="ret_sel('vdsselect'),fwreviewselect()">DriverIso/VDS Review</a></li>
+                            <li><a href="#" id ="basesheet" class="bsselect" onclick="ret_sel('bsselect'),fwreviewselect()">Basesheet creation/review </a></li>
+                            <li><a href="#" id ="Product" class="pselect" onclick="ret_sel('pselect'),fwreviewselect()">Product Understanding</a></li>
+                            <li><a href="#" id ="other" class="oselect" onclick="ret_sel('oselect'),fwreviewselect()">Others</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Planning
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="create_plan">Create/Modify plan</a></li>
+                            <li><a href="#" id ="review">Review</a></li>
+                            <li><a href="#" id ="modify_testcase">Create/Modify Test Case</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Test Execution
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0" id = "tests" >
+                                <li>
+                                    <form id ="myForm" action="/Activity/TestBedSetup/"  method="post"> {% csrf_token %}
+                                    <a id ="testbedid" class = "btn btn-default dropdown-toggle testbedsetup" onclick="testsub()" >TestBed Setup</a></form></li>
+                            <li><a href = "#" id ="execution" class = "execution" onclick="createSelect(),checkInput()">Execution</a></li>
+                            <li><a href="#" id ="troubleshoot" class = "Troubleshoot" onclick="troubleshootselect(),checktroubleshoot()">Troubleshoot</a></li>
+                            <li>
+                                <form id ="myForm2" action="/Activity/testbedmodify/"  method="post"> {% csrf_token %}
+                                <a id ="testbed_modify" class = "btn btn-default dropdown-toggle testbedsetup" onclick="tb_modify()">Modify TestBed</a></form></li>
+                            <!--<li><a href="#" id ="defect">Defects</a></li>-->
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Test Reporting
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0 ">
+                            <li><a href="#" id ="statusupdate">Status Updates</a></li>
+                            <li><a href="#" id ="hcl_prep">HCL Preparation</a></li>
+                            <li><a href="#" id ="hcl_rev">HCL Review</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        {% if lead is 1 %}
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Data Collection
+                        <span ></span></button>
+                        {% else %}
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown" disabled>Data Collection
+                        <span ></span></button>
+                        {% endif %}
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li>
+                                <form action="/Activity/testmetrics/" method="POST" id="test_met">{% csrf_token %}
+                                    <a href="#" id ="testmetrics" onclick="testm()">TestMetrics Collection</a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">ORG Activity
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="interview">Interviews</a></li>
+                            <li><a href="#" id ="initiative">Initiatives</a></li>
+                            <li><a href="#" id ="other_org">others</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Value Adds
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="whitepaper"> White papers</a></li>
+                            <li><a href="#" id ="patent">Patents</a></li>
+                            <li><a href="#" id ="other_valueadd">others</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Self Learning
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="certification">Certifications</a></li>
+                            <li><a href="#" id ="yorbit">Yorbit</a></li>
+                            <li><a href="#" id ="other_learning">others</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Team Activities
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="techsession">Tech Sessions</a></li>
+                            <li><a href="#" id ="kt">KT</a></li>
+                            <li><a href="#" id ="team_interview">Interviews</a></li>
+                            <li><a href="#" id ="fun_activity">Team Outing/Lunch/other</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle task" type="button" data-toggle="dropdown">Automation
+                        <span ></span></button>
+
+                        <ul class="dropdown-menu" style = "padding :0 ;margin :0">
+                            <li><a href="#" id ="auto_plan">Planning</a></li>
+                            <li><a href="#" id ="scripting">Scripting</a></li>
+                            <li><a href="#" id ="unittest">Unit Testing</a></li>
+                            <li><a href="#" id ="review_automation">Review</a></li>
+                        </ul>
+                    </div>
+              </div>
+            <!--<div id="myModal" class="modal">-->
+              <!--&lt;!&ndash; Modal content &ndash;&gt;-->
+              <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<span class="close"><button id = "save" onclick = "closemodal()">save changes</button></span>-->
+                    <!--<h3>Adapter Details</h3>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                 <!--<div id="sel">-->
+                    <!--<select  id ="selid" onchange = "selfunc()">-->
+                        <!--<option>Adapter</option>-->
+                        <!--{% for adapter, alias in adapter_names.iteritems %}-->
+                            <!--<option>{{ alias }}</option>-->
+                        <!--{% endfor %}-->
+                    <!--</select>-->
+                 <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+             <!--<div id="myUcsmModal" class="ucsm-modal">-->
+              <!--&lt;!&ndash; Modal content &ndash;&gt;-->
+              <!--<div class="ucsm_modal-content">-->
+                <!--<div class="ucsm_modal-header">-->
+                    <!--<span class="close"><button id = "save_ucsm" onclick = "closeucsmModal()">save changes</button></span>-->
+                  <!--<h3>UCSM Adapter Details</h3>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                 <!--<div id="ucsm_sel">-->
+                    <!--<select  id ="ucsm_selid" onchange = "selfunc()">-->
+                        <!--<option>Adapter</option>-->
+                        <!--{% for adapter, alias in adapter_names.iteritems %}-->
+                            <!--<option>{{ alias }}</option>-->
+                        <!--{% endfor %}-->
+                    <!--</select>-->
+                 <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <form id = "tempform">
+            <div id = "testdbedsetup">
+                <select id = "testbed" onchange="testbedfunc()">
+                    <option>select TestBed type</option>
+                 <!--   <option>Static TestBed Setup</option> -->
+                    <option>Dynamic TestBed Setup</option>
+                </select>
+
+                <button type= "submit" value = "/Activity/save/" >Generate</button>
+
+            </div>
+              </form>
+                 <form id ="myForm1" action="/Activity/preview/" method="post"> {% csrf_token %}
+            <div id ="execseldiv">
+                <select id ="execsel">
+                    <option>Select Release</option>
+                    <option>GP</option>
+                    <option>GPMR1</option>
+                    <option>RPQ</option>
+					<option>FPMR2</option>
+                </select>
+
+            </div>
+
+            <div id ="testedselect">
+                <select id = "testselect" onchange="selectfunc()" onclick="va()">
+                    <option>Choose Test Bed Setup</option>
+                    {% for standalone_testBed in standalone_testbed %}
+                        <option> {{ standalone_testBed.cimc_ip }} </option>
+                    {% endfor %}
+                    {% for ucsm_testBed in ucsm_testbed %}
+                        <option> {{ ucsm_testBed.fi_ip }}_server{{ ucsm_testBed.server_number }} </option>
+                    {% endfor %}
+                </select>
+           <!--     <button type ="button" id = "sub" onclick="validate()">Submit</button>  -->
+				<button type ="button" id = "sub" onclick="send()">Submit</button> 
+                  <!--<a href  class = "checksubmit" title = "Log Out" id ="submit" onclick="validate()" >SUBMIT</a>-->
+            </div>
+            </form>
+            <div id ="testedselect_troubleshoot">
+                <select id = "testselect_troubleshoot" onchange="troubleshoot()">
+                    <option>Choose Test Bed Setup</option>
+                    {% for standalone_testBed in standalone_testbed %}
+                        <option> {{ standalone_testBed.cimc_ip }} </option>
+                    {% endfor %}
+                    {% for ucsm_testBed in ucsm_testbed %}
+                        <option> {{ ucsm_testBed.fi_ip }}_server{{ ucsm_testBed.server_number }} </option>
+                    {% endfor %}
+                </select>
+            </div>
+			<div id ="FW_rev">
+                <select id = "fwReview" onchange="firware_review()">
+                    <option>Select Release</option>
+                    <option> GP </option>
+                    <option> GPMR1 </option>
+                    <option> FP </option>
+                    <option> FPMR1 </option>
+                </select>
+                <input type="submit" id="sub1">
+            </div>
+            </div>
+        <!--</form>-->
+    </body>
+</html>

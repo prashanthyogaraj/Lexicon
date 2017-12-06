@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Metrics Collection</title>
+</head>
+<link rel="stylesheet" href="/static/div.css">
+<link rel="stylesheet" href="/static/logo.css">
+<style>
+    #release_tab {
+        position: auto;
+        margin-top: 20px;
+        border: 1px groove;
+        border-color: black;
+    }
+    #myForm{
+
+
+    }
+    body {
+        background-color: #74AFAD;
+        rgb(66, 72, 244);
+    }
+    .btn-custom,#btncustom{
+        color: white;
+        background: #444;
+        margin-top: 100px;
+        margin-left: 15px;
+        height: 100px;
+        width: 100px;
+        border: none;
+        border-radius: 50%;
+    }
+    .sel-custom,#date_field,#date1_field{
+        margin-top: 100px;
+        height: 40px;
+        width: 150px;
+        border: none;
+
+    }
+    .testbed {
+        background-color: white;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    .page-heading {
+        font-size: 25px;
+        text-align: center;
+        color: white;
+        margin-left: 110px;
+        margin-top: -39px;
+        font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    }
+    header {
+        overflow: hidden;
+        height: 70px;
+        font-size :auto;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100%;
+    }
+    .heading {
+         color : white;
+         margin-left: 110px;
+         margin-top: 29px;
+    }
+    .tab {
+        table-layout: fixed;
+        width: 250px;
+        margin-top: 100px;
+    }
+    .tab1 {
+        background: #005381;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        white-space: nowrap;
+    }
+    .tab_fiIp {
+        width: 100px;
+    }
+    .tab_fw {
+        width: 150px;
+    }
+    .tab_bios {
+        width: 200px;
+    }
+    .tab_link {
+        overflow: hidden;
+    }
+    .tab_header {
+        color: white;
+        font-weight: lighter;
+        text-align: left;
+        width: 200px;
+    }
+    tbody{
+        border: none;
+        border-radius: 50px;
+    }
+    th {
+        border-radius: 10px;
+        text-align: left;
+    }
+    .save {
+        float: right;
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: -65px;
+        margin-right: 35px;
+        cursor: pointer;
+    }
+    .save:hover {
+        background-color: steelblue;
+    }
+    .textbox{
+        border: 0px solid #74AFAD;
+        width: 100%;
+        height: 40px;
+        background: #74AFAD;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #export{
+        margin-top : 20px;
+
+       }
+    .logs {
+        border: none;
+        background: #74AFAD;
+        text-align: center;
+    }
+    .textbox_header {
+        background: white;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+    tab_header:hover {
+        background: #444;
+        border: 2px solid #444;
+    }
+    td {
+        border: groove;
+    }
+</style>
+<script>
+
+</script>
+<body>
+
+<header>
+<div id = "header" >
+    <p class = "heading">LEXICON</p>
+    <p class="page-heading">TEAM METRICS</p>
+    <div class="view">
+        <div class="plane main">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        </div>
+    </div>
+    <button type="submit" class="save" onclick="submit()">SAVE</button>
+</div>
+</header>
+    <form id="myForm"  method="POST" action="/Activity/testmetrics/">{% csrf_token %}
+    <!--<form id="myForm" method="POST">{% csrf_token %}-->
+            <input type="date" id="date_field" name="fromDate" value="2017-01-01">
+            <input type="date" id="date1_field" name="toDate" value="2017-12-01">
+            <select name="team_filter">
+                <option>All Teams</option>
+                <option>Rack OS-Compat-Standalone</option>
+                <option>Rack OS-Compat-UCSM</option>
+            </select><br><br>
+
+
+            <select name="release_filter">
+                <option>release</option>
+                <option>GP</option>
+                <option>GPMR1</option>
+                <option>FP</option>
+            </select>
+            <select name="os_filter">
+                <option>OS</option>
+                <option>rhel 6.9</option>
+                <option>rhel 6.7</option>
+            </select>
+            <select name="adapter_filter">
+                <option>Adapter</option>
+                <option>9361</option>
+                <option>9362</option>
+                <option>INT x540LOM</option>
+            </select>
+            <button id="btn-custom">Search</button>
+            {% for e,q in users.iteritems %}
+                <table id="release_tab">
+                    <tr>
+                        <td>Engineer</td>
+                        <td>{{ e }}</td>
+                    </tr>
+                    <tr>
+                        <td>CIMC</td>
+                        <td>Server</td>
+                        <td>Adapter</td>
+                        <td>Slot</td>
+                        <td>Effort Spent</td>
+                        <td>OS</td>
+                        <td>Driver Version</td>
+                    </tr>
+                    {% for query,execution in q.iteritems %}
+                        <tr>
+                            {% if execution %}
+                                {% if query.cimc_ip %}
+                                    <td>{{ query.cimc_ip }}</td>
+                                {% else %}
+                                    <td>FI->{{ query.fi_ip }}</td>
+                                {% endif %}
+                                <td>{{ query.server_type }}</td>
+                                <td>{{ query.adapter_name }}</td>
+                                <td>{{ query.adapter_slot }}</td>
+                                <td>{{ query.effort }}</td>
+                                {% if execution %}
+                                    {% for e in execution %}
+                                        <td>{{ e.os }}</td>
+                                        <td>{{ e.driver_version }}</td>
+                                    {% endfor %}
+                                {% else %}
+                                    <td>--</td>
+                                    <td>--</td>
+                                {% endif %}
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endfor %}
+    </form>
+  <form id ="export" method="post" action="/Activity/export_users_xls/">{% csrf_token %}
+                 <input type="date" id="date_field1" name="fromDate" value="2009-01-01">
+                 <input type="date" id="date1_field2" name="toDate" value="2010-12-01">
+        <select name="adapter_filter">
+                <option>Adapter</option>
+                {% for adap in adapter_names %}
+                    <option>{{ adap }}</option>
+                {% endfor %}
+            </select>
+         <select name="release_filter">
+                <option>release</option>
+                <option>GP</option>
+                <option>GPMR1</option>
+                <option>FP</option>
+            </select>
+           <select name="engineer_filter">
+                <option>Engineer</option>
+                <option>Abinaya</option>
+                <option>Raji</option>
+                <option>Praveena</option>
+            </select>
+         <select name="team_filter">
+                <option>All Teams</option>
+                <option>Rack OS-Compat-Standalone</option>
+                <option>Rack OS-Compat-UCSM</option>
+            </select>
+          <select name="os_filter">
+                <option>OS</option>
+                {% for os in osnames %}
+                    <option>{{ os }}</option>
+                {% endfor %}
+            </select>
+                 <button id = "exp" onclick="expsub()">Export</button>
+     </form>
+</body>
+</html>
